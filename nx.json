@@ -1,7 +1,29 @@
 {
   "installation": {
-    "version": "21.3.9"
+    "version": "21.3.9",
+    "plugins": {
+      "@nx/gradle": "21.3.9"
+    }
   },
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "nxCloudId": "68896b8c1fc5e5754f6daff3"
+  "nxCloudId": "68896b8c1fc5e5754f6daff3",
+  "plugins": [
+    {
+      "plugin": "@nx/gradle",
+      "options": {
+        "testTargetName": "test",
+        "classesTargetName": "classes",
+        "buildTargetName": "build"
+      }
+    }
+  ],
+  "namedInputs": {
+    "default": [
+      "{projectRoot}/**/*"
+    ],
+    "production": [
+      "default",
+      "!{projectRoot}/src/test/**/*"
+    ]
+  }
 }
