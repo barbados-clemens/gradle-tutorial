@@ -17,13 +17,9 @@
       }
     }
   ],
+  "bust": 1,
   "namedInputs": {
-    "default": [
-      "{projectRoot}/**/*"
-    ],
-    "production": [
-      "default",
-      "!{projectRoot}/src/test/**/*"
-    ]
+    "default": ["{projectRoot}/**/*"],
+    "production": ["default", "!{projectRoot}/src/test/**/*"]
   }
 }
