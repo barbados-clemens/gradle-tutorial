@@ -6,14 +6,15 @@
     }
   },
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
-  "nxCloudId": "68896b8c1fc5e5754f6daff3",
+  "___nxCloudId": "68896b8c1fc5e5754f6daff3",
   "plugins": [
     {
       "plugin": "@nx/gradle",
       "options": {
         "testTargetName": "test",
         "classesTargetName": "classes",
-        "buildTargetName": "build"
+        "buildTargetName": "build",
+        "ciTestTargetName": "ciTest"
       }
     }
   ],

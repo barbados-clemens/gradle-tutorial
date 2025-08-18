@@ -30,6 +30,27 @@ dependencies {
 tasks.withType(JavaCompile).configureEach {
 	options.compilerArgs.add("-parameters")
 }
+
+// Replace the default test task with an error
+test {
+	doFirst {
+		throw new GradleException("The 'test' task has been replaced with 'apiTest'. Please use './gradlew apiTest' instead.")
+	}
+}
+
+// Create apiTest as a replacement for test
+tasks.register('apiTest', Test) {
+	useJUnitPlatform()
+	group = 'verification'
+	description = 'Runs the API tests'
+	testClassesDirs = sourceSets.test.output.classesDirs
+	classpath = sourceSets.test.runtimeClasspath
+}
+
+// Make check depend on apiTest instead of test
+check {
+	dependsOn apiTest
+}
 allprojects {
     apply {
         plugin("dev.nx.gradle.project-graph")
